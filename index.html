@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yvn Group - Շինարարական ամբողջական ծառայություններ</title>
+    <style>
+        /* === RESET === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #2d3748;
+            background: #f8f9fa;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === HEADER === */
+        header {
+            background: #1a365d;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.3);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f5b042;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f5b042;
+        }
+
+        .btn-header {
+            background: #f5b042;
+            color: #1a365d;
+            padding: 10px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-header:hover {
+            background: #e09e30;
+            transform: scale(1.05);
+        }
+
+        /* === HERO === */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1400') center/cover no-repeat;
+            color: #fff;
+            padding: 130px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: #f5b042;
+        }
+
+        .hero .tagline {
+            font-size: 24px;
+            font-style: italic;
+            margin: 15px 0 25px;
+            opacity: 0.95;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #f5b042;
+            color: #1a365d;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #e09e30;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid #fff;
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #fff;
+            color: #1a365d;
+        }
+
+        /* === STATISTICS === */
+        .stats {
+            background: #fff;
+            padding: 50px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 44px;
+            color: #1a365d;
+        }
+
+        .stat-item h3 span {
+            color: #f5b042;
+        }
+
+        .stat-item p {
+            color: #718096;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        /* === SERVICES (ԲՈԼՈՐ 8-Ը) === */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            color: #1a365d;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 25px 18px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+            border-bottom-color: #f5b042;
+        }
+
+        .service-icon {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            color: #1a365d;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .service-card a {
+            display: inline-block;
+            margin-top: 12px;
+            color: #f5b042;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .service-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* === SERVICE DETAILS (ԵՆԹԱԲԱԺԻՆՆԵՐ) === */
+        .service-detail {
+            padding: 70px 0;
+            background: #fff;
+        }
+
+        .service-detail:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .service-detail .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .service-detail .text {
+            flex: 1;
+        }
+
+        .service-detail .text h2 {
+            color: #1a365d;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .service-detail .text h2 span {
+            color: #f5b042;
+        }
+
+        .service-detail .text p {
+            color: #4a5568;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .service-detail .image {
+            flex: 1;
+        }
+
+        .service-detail .image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        /* === WHY US === */
+        .why-us {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .why-item .icon {
+            font-size: 42px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .why-item h4 {
+            color: #1a365d;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .why-item p {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials {
+            padding: 80px 0;
+            background: #1a365d;
+            color: #fff;
+        }
+
+        .testimonials .section-title {
+            color: #fff;
+        }
+
+        .testimonials .section-subtitle {
+            color: #cbd5e0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #f5b042;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: #f5b042;
+        }
+
+        /* === CONTACT === */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #f5b042;
+            color: #1a365d;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #e09e30;
+            transform: scale(1.02);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #1a365d;
+            color: #cbd5e0;
+            padding: 40px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .footer-grid h4 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-grid a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-grid a:hover {
+            color: #f5b042;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .service-detail .container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .service-detail .image img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 34px;
+            }
+            .hero .tagline {
+                font-size: 18px;
+            }
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul {
+                justify-content: center;
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .hero .tagline {
+                font-size: 16px;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">Yvn <span>Group</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Գլխավոր</a></li>
+                    <li><a href="#services">Ծառայություններ</a></li>
+                    <li><a href="#why">Մեր մասին</a></li>
+                    <li><a href="#contact">Կոնտակտներ</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-header">Կապնվել մեզ</a>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Yvn <span>Group</span></h1>
+            <div class="tagline">«Սկզբից մինչև վերջ՝ ձեր տունը մեզ հետ»</div>
+            <p>Ամբողջական շինարարական ծառայություններ՝ դիզայնից մինչև բանալիով հանձնում: Աշխատում ենք որակով, վստահությամբ և ժամանակին:</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn-primary">Տեսնել ծառայությունները</a>
+                <a href="#contact" class="btn-secondary">Անվճար խորհրդատվություն</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STATISTICS ===== -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10<span>+</span></h3>
+                    <p>Տարվա փորձ</p>
+                </div>
+                <div class="stat-item">
+                    <h3>120<span>+</span></h3>
+                    <p>Ավարտված նախագիծ</p>
+                </div>
+                <div class="stat-item">
+                    <h3>97<span>%</span></h3>
+                    <p>Գոհ հաճախորդներ</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Տեխ. աջակցություն</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES (8 ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԸ) ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Մեր ծառայությունները</h2>
+            <p class="section-subtitle">Տան կառուցման ամբողջական ցիկլ՝ մեկ վայրում</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📐</div>
+                    <h3>Դիզայն</h3>
+                    <p>Անհատական նախագծեր՝ համապատասխան ձեր ցանկություններին և բյուջեին</p>
+                    <a href="#design">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Շինարարություն</h3>
+                    <p>Բնակելի, առևտրային և արդյունաբերական օբյեկտների կառուցում</p>
+                    <a href="#construction">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌀</div>
+                    <h3>Օդափոխություն</h3>
+                    <p>Օդափոխման, օդորակման և ջեռուցման համակարգերի տեղադրում</p>
+                    <a href="#ventilation">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3>Տեսահսկում</h3>
+                    <p>Տեսահսկման ամբողջական համակարգեր՝ արտաքին և ներքին</p>
+                    <a href="#cctv">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Հոսանք</h3>
+                    <p>Էլեկտրամոնտաժային աշխատանքներ, լարերի անցկացում, վահանակներ</p>
+                    <a href="#electric">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪑</div>
+                    <h3>Կահույք</h3>
+                    <p>Խոհանոցի, լոգարանի, ննջասենյակի, պահարանների պատրաստում</p>
+                    <a href="#furniture">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>Պատուհաններ</h3>
+                    <p>ՊՎՔ, ալյումինե, փայտե պատուհանների արտադրություն և տեղադրում</p>
+                    <a href="#windows">Մանրամասն →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔥</div>
+                    <h3>Հակահրդեհային</h3>
+                    <p>Հրդեհային ազդանշանման, մարման և փրկարարական համակարգեր</p>
+                    <a href="#fire">Մանրամասն →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICE DETAILS (ԵՆԹԱԲԱԺԻՆՆԵՐ) ===== -->
+
+    <!-- 1. Դիզայն -->
+    <section class="service-detail" id="design">
+        <div class="container">
+            <div class="text">
+                <h2>📐 <span>Դիզայն</span></h2>
+                <p>Մեր ճարտարապետները և դիզայներները մշակում են անհատական նախագծեր՝ հաշվի առնելով ձեր բոլոր ցանկությունները, ապրելակերպը և բյուջեն: Առաջարկում ենք 2D և 3D պատկերացում, որպեսզի տեսնեք ձեր ապագա տունը մինչև շինարարության մեկնարկը:</p>
+                <p>Նախագծում ենք ինչպես նոր կառուցվող, այնպես էլ վերակառուցվող տների համար:</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600" alt="Դիզայն">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Շինարարություն -->
+    <section class="service-detail" id="construction">
+        <div class="container">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600" alt="Շինարարություն">
+            </div>
+            <div class="text">
+                <h2>🏗️ <span>Շինարարություն</span></h2>
+                <p>Իրականացնում ենք բոլոր տեսակի շինարարական աշխատանքներ՝ հիմքից մինչև տանիք: Օգտագործում ենք բարձրորակ շինանյութեր, վերահսկում ենք յուրաքանչյուր փուլ՝ ապահովելով ամրություն և անվտանգություն:</p>
+                <p>Աշխատում ենք ինչպես բնակելի, այնպես էլ առևտրային և արդյունաբերական օբյեկտների հետ:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Օդափոխություն -->
+    <section class="service-detail" id="ventilation">
+        <div class="container">
+            <div class="text">
+                <h2>🌀 <span>Օդափոխություն</span></h2>
+                <p>Տեղադրում ենք ժամանակակից օդափոխման, օդորակման և ջեռուցման համակարգեր: Ապահովում ենք տան մշտական մաքուր օդ, հարմարավետ ջերմաստիճան և էներգաարդյունավետություն:</p>
+                <p>Մեր փորձագետները կնախագծեն համակարգը ձեր տան չափերին և կարիքներին համապատասխան:</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1584700484375-20d2444b86b8?w=600" alt="Օդափոխություն">
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Տեսահսկում -->
+    <section class="service-detail" id="cctv">
+        <div class="container">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=600" alt="Տեսահսկում">
+            </div>
+            <div class="text">
+                <h2>📹 <span>Տեսահսկման համակարգ</span></h2>
+                <p>Տրամադրում ենք տեսահսկման ամբողջական համակարգեր՝ ինչպես արտաքին, այնպես էլ ներքին: HD տեսախցիկներ, շարժման ազդանշանիչներ, հեռահար մուտք, ձայնագրություն և ամպային պահեստավորում:</p>
+                <p>Ձեր տան և բիզնեսի անվտանգությունը մեր առաջնահերթությունն է:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Հոսանք -->
+    <section class="service-detail" id="electric">
+        <div class="container">
+            <div class="text">
+                <h2>⚡ <span>Հոսանք</span></h2>
+                <p>Իրականացնում ենք էլեկտրամոնտաժային աշխատանքների ամբողջական փաթեթ՝ լարերի անցկացում, վահանակների տեղադրում, վարդակներ, անջատիչներ, լուսավորություն և ավտոմատացում:</p>
+                <p>Աշխատում ենք անվտանգության բոլոր նորմերով՝ ապահովելով ձեր տան էլեկտրամատակարարման հուսալիությունը:</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1541199249251-f713e6145474?w=600" alt="Հոսանք">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Կահույք -->
+    <section class="service-detail" id="furniture">
+        <div class="container">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600" alt="Կահույք">
+            </div>
+            <div class="text">
+                <h2>🪑 <span>Կահույք</span></h2>
+                <p>Պատրաստում և տեղադրում ենք անհատական կահույք՝ խոհանոցի, լոգարանի, ննջասենյակի, հյուրասենյակի, պահարանների և գրասենյակի համար:</p>
+                <p>Մենք օգտագործում ենք բարձրորակ նյութեր և ժամանակակից դիզայն՝ համապատասխան ձեր ճաշակին և տան ոճին:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Պատուհաններ -->
+    <section class="service-detail" id="windows">
+        <div class="container">
+            <div class="text">
+                <h2>🪟 <span>Պատուհաններ</span></h2>
+                <p>Արտադրում և տեղադրում ենք բարձրորակ պատուհաններ՝ ՊՎՔ, ալյումինե և փայտե տարբերակներով: Ապահովում ենք ջերմամեկուսացում, ձայնամեկուսացում և էսթետիկ տեսք:</p>
+                <p>Մեր պատուհանները երկարատև են, դիմացկուն և էներգաարդյունավետ:</p>
+            </div>
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1577017040065-650ee4d4336d?w=600" alt="Պատուհաններ">
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Հակահրդեհային -->
+    <section class="service-detail" id="fire">
+        <div class="container">
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1573152958734-1922c188feb3?w=600" alt="Հակահրդեհային">
+            </div>
+            <div class="text">
+                <h2>🔥 <span>Հակահրդեհային համակարգ</span></h2>
+                <p>Տեղադրում ենք հրդեհային ազդանշանման, հրդեհի մարման, ծխի արտանետման և փրկարարական համակարգեր: Աշխատում ենք բոլոր նորմերին համապատասխան՝ ապահովելով ձեր և ձեր գույքի անվտանգությունը:</p>
+                <p>Կատարում ենք նաև համակարգերի սպասարկում և ստուգում:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="why-us" id="why">
+        <div class="container">
+            <h2 class="section-title">Ինչու՞ Yvn Group</h2>
+            <p class="section-subtitle">Մեզ ընտրում են, որովհետև</p>
+            <div class="why-grid">
+                <div class="why-item">
+                    <span class="icon">🏆</span>
+                    <h4>10+ տարվա փորձ</h4>
+                    <p>Աշխատել ենք 120+ օբյեկտներում՝ տարբեր բարդության</p>
+                </div>
+                <div class="why-item">
+                    <span class="icon">📋</span>
+                    <h4>Ամբողջական փաթեթ</h4>
+                    <p>8 ծառայություն մեկ վայրում՝ դիզայնից մինչև հանձնում</p>
+                </div>
+                <div class="why-item">
+                    <span class="icon">⏱️</span>
+                    <h4>Ժամանակին հանձնում</h4>
+                    <p>Խիստ հետևում ենք ժամանակացույցին</p>
+                </div>
+                <div class="why-item">
+                    <span class="icon">💰</span>
+                    <h4>Թափանցիկ գներ</h4>
+                    <p>Նախահաշիվը քննարկվում է մինչև աշխատանքի սկիզբը</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Հաճախորդների կարծիքները</h2>
+            <p class="section-subtitle">Ինչ են ասում մեր գոհ հաճախորդները</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>«Yvn Group-ը կառուցեց մեր տունը 10 ամսում՝ նախատեսված 12-ի փոխարեն: Բոլոր փուլերում աշխատեցին պրոֆեսիոնալ և պատասխանատու: Շատ գոհ ենք արդյունքից»:</p>
+                    <div class="author">— Գևորգ, Երևան</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>«Պատվիրել ենք դիզայն, շինարարություն, կահույք և օդափոխություն: Ամեն ինչ արվեց բարձր որակով և ժամանակին: Yvn Group-ը լավագույն ընտրությունն է»:</p>
+                    <div class="author">— Աննա, «Վեդի» ընկերություն</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Անվճար խորհրդատվություն</h2>
+            <p class="section-subtitle">Թողեք ձեր տվյալները, և մենք կկապ
